@@ -1,0 +1,207 @@
+.portfolio {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 180px 15px 180px 15px;
+}
+
+.portfolio-slider {
+    width: 100vw;
+    height: 650px;
+    display: block;
+    margin-left: -50vw;
+    left: 50%;
+    position: relative;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: "";
+        height: 100px;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+    }
+
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    $portfolioAnimationSpeed: 30s;
+
+    @keyframes portfolioScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-535px * 5))
+        }
+    }
+
+
+    .slide-track {
+        animation: portfolioScroll $portfolioAnimationSpeed linear infinite;
+        display: flex;
+        align-items: start;
+        gap: 10px;
+        width: calc(550px * 10);
+        transition: all .4s;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+
+
+        .slide {
+            cursor: pointer;
+
+            img {
+                width: 535px;
+                height: 560px;
+                opacity: 0.8;
+                transition: all 0.4s;
+            }
+
+            p {
+                padding-top: 5px;
+                font-size: 28px;
+                font-weight: 500;
+                border-bottom: 2px solid transparent;
+                transition: all 0.4s;
+
+                background-image: linear-gradient(var(--gray), var(--black));
+                background-position: 0% 100%;
+                background-repeat: no-repeat;
+                background-size: 0% 2px;
+                transition: background-size .4s;
+                transition: 0.4s ease-in-out;
+            }
+
+            &:hover {
+
+                img {
+                    opacity: 1;
+                    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 1.0);
+                    transition: all 0.4s;
+                }
+
+                p {
+                    background-size: 100% 2px;
+                    transition: all 0.4s ease-in-out;
+                }
+            }
+        }
+
+        .slide.sm {
+
+            img {
+                height: 350px;
+            }
+        }
+
+        .slide.big {
+
+            img {
+                height: 580px;
+            }
+        }
+
+        .slide.mid {
+
+            img {
+                width: 350px;
+                height: 530px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .portfolio {
+        padding: 100px 0;
+    }
+
+    .portfolio-slider {
+        height: 470px;
+
+        .slide-track {
+            width: calc(425px * 10);
+
+            .slide,
+            .slide.big,
+            .slide.sm,
+            .slide.mid {
+                img{
+                    width: 425px;
+                    height: 425px;
+                }
+
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width:425px) {
+
+    .portfolio-slider {
+        height: 420px;
+
+        .slide-track {
+            width: calc(370px * 10);
+
+            .slide,
+            .slide.big,
+            .slide.sm,
+            .slide.mid {
+                img{
+                    width: 370px;
+                    height: 370px;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+
+    }
+}
+
+
+@media screen and (max-width:375px) {
+
+    .portfolio-slider {
+        height: 350px;
+
+        .slide-track {
+            width: calc(310px * 10);
+
+            .slide,
+            .slide.big,
+            .slide.sm,
+            .slide.mid {
+                img{
+                    width: 310px;
+                    height: 310px;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+
+    }
+}
