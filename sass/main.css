@@ -647,8 +647,8 @@ button:hover {
 }
 @media (max-width: 425px) {
   .process__item-title {
-    font-size: 22px;
-    width: 180px;
+    font-size: 20px;
+    width: 170px;
   }
 }
 .process__item i {
@@ -804,6 +804,11 @@ button:hover {
 @media (max-width: 768px) {
   .email-form {
     margin-top: 50px;
+  }
+}
+@media (max-width: 425px) {
+  .email-form {
+    max-width: 250px;
   }
 }
 .email-form .name__input,

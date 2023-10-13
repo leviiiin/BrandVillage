@@ -711,8 +711,8 @@ $animationSpeed: 30s;
             }
 
             @media (max-width: 425px) {
-                font-size: 22px;
-                width: 180px;
+                font-size: 20px;
+                width: 170px;
             }
         }
 
@@ -899,6 +899,10 @@ $animationSpeed: 30s;
 
     @media (max-width:768px) {
         margin-top: 50px;
+    }
+
+    @media (max-width:425px) {
+        max-width: 250px;
     }
 
     .name__input,
